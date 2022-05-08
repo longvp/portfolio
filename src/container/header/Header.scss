@@ -1,0 +1,234 @@
+@import '../style/style.scss';
+
+.header{
+    padding: 20px 0;
+    background-color: $bg-green;
+    &.header-fixed{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: $bg-white;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        z-index: 10;
+        transition: 0.5s;
+    }
+}
+.header-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .header-left{
+        display: flex;
+        align-items: center;   
+        .header-name{
+            text-decoration: none;
+            font-size: 25px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: capitalize;
+            color: $primary-color;
+        }
+    }
+    .header-right{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .header-menu-list{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            margin-right: 50px;
+            .header-item{
+                .header-link{
+                    display: inline-block;
+                    width: 100%;
+                    text-decoration: none;
+                    font-size: 16px;
+                    color: $text-black;
+                    font-weight: 500;
+                    position: relative;
+                    letter-spacing: 3px;
+                    cursor: pointer;
+                    &::after{
+                        content: '';
+                        position: absolute;
+                        width: 100%;
+                        height: 1px;
+                        background-color: $primary-color;
+                        bottom: 0;
+                        left: 0;
+                        opacity: 0;
+                        transform: translateX(-100%);
+                    }
+                    &:hover{
+                        color: $primary-color !important;
+                        transition: 0.5s;
+                        &::after{
+                            opacity: 1;
+                            transform: translateX(0);
+                            transition: 0.5s;
+                        }
+                    }
+                }
+            }
+        }
+        .btn-close-menu{
+            display: none;
+        }
+        .btn-show-menu{
+            display: none;
+            .icon-show-menu{
+                color: $text-black;
+            }
+        }
+        .toggle{
+            .switch {
+                position: relative;
+                cursor: pointer;
+                width: 4rem;
+                height: 2rem;
+                display: block;
+                margin: 0 auto;
+                overflow: hidden;
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+                background: $text-black;
+                border-radius: 100rem;
+                transition: background-color 0.25s linear;
+            }
+            .switch:after {
+                content: "";
+                position: absolute;
+                width: 1rem;
+                height: 1rem;
+                border-radius: 1rem;
+                background-color: $bg-white;
+                top: 5px;
+                left: 5px;
+                transition: background-color 0.25s linear, transform 0.25s linear;
+            }
+            .switch-input {
+                display: none;
+            }
+            .switch-input:checked + .switch {
+                background-color: $primary-color;
+            }
+            .switch-input:checked + .switch:after {
+                transform: translateX(2rem);
+                background-color: $bg-white;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .header{
+        background-color: $bg-white;
+    }
+    .header-container{
+        .header-right{
+            .header-menu-list{
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 50px;
+                padding: 50px 0;
+                margin: 0; //#f1f5f8
+                background-color: $bg-menu-mobile;
+                width: 100%;
+                height: 100vh;
+                transform: translateX(0);
+                transition: transform 0.3s linear;
+                .header-item{
+                    .header-link{
+                        text-align: center;
+                        display: block;
+                        font-size: 20px;
+                        letter-spacing: 2px;
+                        color: $text-light-dark;
+                        &:hover{
+                            color: $primary-color;
+                            transform: scale(1.5);
+                            transition: 0.5s;
+                        }
+                        &::after{
+                           display: none;
+                        }
+                    }
+                }
+                &.hide-menu{                  
+                    transform: translateX(-100%);
+                }
+            }
+            .btn-close-menu{
+                display: block;
+                cursor: pointer;
+                position: absolute;
+                top: 10px;
+                right: 30px;
+                font-size: 50px;
+                &:hover{
+                    transform: scale(1.5);
+                    color: $primary-color !important;
+                    transition: 0.5s;
+                }
+            }
+            .btn-show-menu{
+                display: block;
+                margin-right: 30px;
+                cursor: pointer;
+                .icon-show-menu{
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .header-container{
+        .header-left{
+            .header-name{
+                font-size: 20px;
+            }
+        }
+        .header-right{
+            .btn-show-menu{
+                .icon-show-menu{
+                    font-size: 20px;
+                }
+            }
+             .toggle{
+                .switch {                
+                    width: 3rem;
+                    height: 2rem;                  
+                }
+                .switch:after {
+                    width: 1rem;
+                    height: 1rem;
+                }
+                .switch-input:checked + .switch:after {
+                    transform: translateX(1rem);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .header-container{
+        .header-left{
+            .header-name{
+                font-size: 16px;
+            }
+        }
+    }
+}

@@ -1,0 +1,79 @@
+@import '../style/style.scss';
+
+.projects{
+    background-color: $bg-white;
+    .project-item{
+        padding: 60px 0;
+        border-bottom: 1px dashed $text-black;
+        &:hover{
+            .project-img{
+               filter: brightness(100%) grayscale(0);
+            }
+        }
+        .project-img{
+            width: 100%;
+            filter: brightness(60%) grayscale(0.2);
+            transition: filter 1s;
+            display: block;
+        }
+        .project-info{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            .project-name{
+                color: $text-black;
+                font-size: 25px;
+                font-weight: 500;
+                text-transform: capitalize;
+                letter-spacing: 3px;
+            }
+            .project-desc{
+                color: $text-black;
+                font-size: 15px;
+                letter-spacing: 1px;
+            }
+            .project-technologies{
+                list-style-type: square;
+                margin: 0 15px;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                color: $text-light-dark;
+            }
+            .list-button{
+                display: flex;              
+                gap: 20px;
+                .button{
+                    display: inline-block;
+                    text-decoration: none;
+                    color: $text-black;
+                    font-weight: 500;
+                    background-color: $yellow-color;
+                    min-width: 100px;
+                    padding: 5px 20px;
+                    text-align: center;
+                    border-radius: 100rem;
+                     &:hover{
+                        opacity: 0.8;
+                        transform: scale(1.1);
+                        transition: 0.5s;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .projects{
+        .project-item{
+            .project-info{
+                margin-top: 20px;
+                .project-name{
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
