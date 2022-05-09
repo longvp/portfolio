@@ -25,7 +25,7 @@ function Contact() {
                     </div>
                     <div className='row'>
                         <div className='col-lg-6 col-md-6 col-sm-12'
-                            data-aos="fade-right"
+                            data-aos="zoom-in"
                             data-aos-duration="1500">
                             <div className='title' style={{ color: darkMode ? 'white' : '' }}>Contact info</div>
                             <ul className='list-info'>
@@ -48,7 +48,7 @@ function Contact() {
                             </ul>
                         </div>
                         <div className='col-lg-6 col-md-6 col-sm-12'
-                            data-aos="fade-left"
+                            data-aos="zoom-in"
                             data-aos-duration="1500"
                         >
                             <div className='title' style={{ color: darkMode ? 'white' : '' }}>Contact form</div>
