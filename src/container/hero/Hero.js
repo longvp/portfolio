@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useStore } from '../../store/useStore'
 
 import avatar from '../../assets/avatar.jpg'
+import cv from '../../assets/cv.pdf'
 
 function Hero() {
 
@@ -51,8 +52,8 @@ function Hero() {
                                     </div>
                                 </div>
                                 <div className='list-button'>
-                                    <a href='#' className='button'>Hire me</a>
-                                    <a href='#' className='button'>Get resume</a>
+                                    <a href='#contact' className='button'>Hire me</a>
+                                    <a href={cv} download='phamvietlong-cv.pdf' className='button'>Get CV</a>
                                 </div>
                             </div>
                         </div>
