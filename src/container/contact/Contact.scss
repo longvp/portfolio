@@ -68,24 +68,30 @@
                 }
             }
         }
-    }
-    .button-send{
-        display: block;
-        width: 100px;
-        outline: none;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        background-color: $text-black;
-        color: $text-white;
-        padding: 8px 15px;
-        margin: 0px auto;
-        margin-top: 30px;
-        text-align: center;
-        letter-spacing: 2px;
-        &:hover{
-            background-color: $primary-color;
-            transition: 0.5s;
+        .message-error{
+            text-align: center;
+            color: red;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+        .button-send{
+            display: block;
+            width: 100px;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: $text-black;
+            color: $text-white;
+            padding: 8px 15px;
+            margin: 0px auto;
+            // margin-top: 30px;
+            text-align: center;
+            letter-spacing: 2px;
+            &:hover{
+                background-color: $primary-color;
+                transition: 0.5s;
+            }
         }
     }
 }

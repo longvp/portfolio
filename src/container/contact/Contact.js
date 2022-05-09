@@ -1,14 +1,52 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Contact.scss'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faHome, faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { useStore } from './../../store/useStore'
 
+import { EMAIL_FORMAT } from './../../utilities/const'
+
 function Contact() {
 
     const [state] = useStore()
     const { darkMode } = state
+
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [subject, setSubject] = useState('')
+    const [message, setMessage] = useState('')
+    const [messageError, setMessageError] = useState('')
+
+    let checkValidate = () => {
+        let messageError = ''
+        if (!name)
+            messageError = 'Name is empty !'
+        if (!email)
+            messageError = 'Email is empty !'
+        if (email && !email.match(EMAIL_FORMAT))
+            messageError = 'Email is not valid !'
+        if (!subject)
+            messageError = 'Subject is empty !'
+        if (!message) messageError = 'Message is empty !'
+        setMessageError(messageError)
+        return messageError ? false : true
+    }
+
+    const handleSend = () => {
+        let validate = checkValidate()
+        if (validate) {
+            let checkConfirm = window.confirm('Do you want to send ?')
+            if (checkConfirm) {
+                alert(`Thank you for your message. I'll get back to you very soon! Have a great day!`)
+                setName('')
+                setEmail('')
+                setSubject('')
+                setMessage('')
+                setMessageError('')
+            }
+        }
+    }
 
     return (
         <>
@@ -55,22 +93,60 @@ function Contact() {
                             <div className='form'>
                                 <div className="text-field">
                                     <label htmlFor="name">Name</label>
-                                    <input type="text" className='text' id="name" placeholder="Name..." />
+                                    <input
+                                        type="text"
+                                        className='text'
+                                        id="name"
+                                        placeholder="Name..."
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
+                                    />
                                 </div>
                                 <div className="text-field">
                                     <label htmlFor="email">Email</label>
-                                    <input type="email" className='text' id="email" placeholder="Email..." />
+                                    <input
+                                        type="email"
+                                        className='text'
+                                        id="email"
+                                        placeholder="Email..."
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                    />
                                 </div>
                                 <div className="text-field">
                                     <label htmlFor="subject">Subject</label>
-                                    <input type="text" className='text' id="subject" placeholder="Subject..." />
+                                    <input
+                                        type="text"
+                                        className='text'
+                                        id="subject"
+                                        placeholder="Subject..."
+                                        value={subject}
+                                        onChange={(e) => setSubject(e.target.value)}
+                                    />
                                 </div>
                                 <div className="text-field">
                                     <label htmlFor="message">Message</label>
-                                    <textarea type="text" className='text' rows='10' id="message" placeholder="Message..." />
+                                    <textarea
+                                        type="text"
+                                        className='text'
+                                        rows='10'
+                                        id="message"
+                                        placeholder="Message..."
+                                        value={message}
+                                        onChange={(e) => setMessage(e.target.value)}
+                                    />
                                 </div>
+                                {messageError &&
+                                    <div className='message-error'>{messageError}</div>
+                                }
+                                <button
+                                    type='button'
+                                    className='button-send'
+                                    onClick={() => handleSend()}
+                                >
+                                    Send
+                                </button>
                             </div>
-                            <button className='button-send'>Send</button>
                         </div>
                     </div>
                 </div>
