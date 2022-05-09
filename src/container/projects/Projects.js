@@ -2,6 +2,8 @@ import React from 'react'
 import './Projects.scss'
 import { useStore } from './../../store/useStore'
 
+import project_1 from '../../assets/project_1.jpg'
+
 function Projects() {
 
     const [state] = useStore()
@@ -25,7 +27,7 @@ function Projects() {
                         data-aos-duration="1500">
                         <div className='row'>
                             <div className='col-lg-6 col-md-6 col-sm-12'>
-                                <img className='project-img' src='/projects/1.jpg' />
+                                <img className='project-img' src={project_1} alt='project_1' />
                             </div>
                             <div className='col-lg-6 col-md-6 col-sm-12'>
                                 <div className='project-info'>
@@ -52,7 +54,7 @@ function Projects() {
                     >
                         <div className='row'>
                             <div className='col-lg-6 col-md-6 col-sm-12'>
-                                <img className='project-img' src='/projects/1.jpg' />
+                                <img className='project-img' src={project_1} alt='project_1' />
                             </div>
                             <div className='col-lg-6 col-md-6 col-sm-12'>
                                 <div className='project-info'>

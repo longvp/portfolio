@@ -43,7 +43,7 @@ function Contact() {
                                 </li>
                                 <li className='info-item'>
                                     <FontAwesomeIcon icon={faHome} className='info-icon' style={{ color: darkMode ? 'white' : '' }} />
-                                    <span className='info-text' style={{ color: darkMode ? 'white' : '' }}><a href='#'>phamvietlong</a></span>
+                                    <span className='info-text' style={{ color: darkMode ? 'white' : '' }}><a href='https://phamvietlong.herokuapp.com'>https://phamvietlong.herokuapp.com</a></span>
                                 </li>
                             </ul>
                         </div>

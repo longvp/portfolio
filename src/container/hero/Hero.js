@@ -5,6 +5,8 @@ import { faFacebook, faGooglePlus, faYoutube, faTwitter } from '@fortawesome/fre
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useStore } from '../../store/useStore'
 
+import avatar from '../../assets/avatar.jpg'
+
 function Hero() {
 
     const [state] = useStore()
@@ -56,7 +58,7 @@ function Hero() {
                         </div>
                         <div className='col-lg-6 col-md-6 col-sm-12'>
                             <div className='box-avatar'>
-                                <img className='avatar' src='/avatar.jpg' />
+                                <img className='avatar' src={avatar} alt='avatar' />
                             </div>
                         </div>
                     </div>
