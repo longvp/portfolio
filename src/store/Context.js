@@ -3,15 +3,17 @@ import { createContext, useReducer } from 'react'
 export const themeContext = createContext()
 
 const initialState = {
-    darkMode: false
+    darkMode: JSON.parse(localStorage.getItem('dark_mode')) || false
 }
 
 const themeReducer = (state, action) => {
     switch (action.type) {
         case 'toggle':
+            let darkMode = !state.darkMode
+            localStorage.setItem('dark_mode', JSON.stringify(darkMode))
             return {
                 ...state,
-                darkMode: !state.darkMode
+                darkMode
             }
         default:
             return state
