@@ -68,11 +68,11 @@
   <script>
     AOS.init();
 
-    function handleEventGtag(event, href, linkMatch) {
+    function handleEventGtag(target, href, linkMatch, eventName) {
       if (href.includes(linkMatch)) {
-        gtag("event", "link_click_hire_me", {
-          link_text: event.target.innerText,
-          link_url: event.target.href,
+        gtag("event", eventName, {
+          link_text: target.innerText,
+          link_url: target.href,
         });
       }
     }
@@ -83,7 +83,7 @@
         listATag.forEach(function (link) {
           link.addEventListener("click", function (event) {
             const href = link.getAttribute("href");
-            handleEventGtag(event, href, "#contact");
+            handleEventGtag(event.target, href, "#contact", "link_click_hire_me");
           });
         });
       }, 1000);
