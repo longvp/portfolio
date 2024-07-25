@@ -17,7 +17,7 @@
 
 		<title>Pham Viet Long</title>
 		<!-- Google Tag Manager -->
-		<!-- <script>
+		<script>
 			(function (w, d, s, l, i) {
 				w[l] = w[l] || [];
 				w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
@@ -28,7 +28,7 @@
 				j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
 				f.parentNode.insertBefore(j, f);
 			})(window, document, 'script', 'dataLayer', 'GTM-54B349DW');
-		</script> -->
+		</script>
 		<!-- End Google Tag Manager -->
 
 		<!-- Google tag (gtag.js) -->
@@ -49,14 +49,14 @@
 
 	<body>
 		<!-- Google Tag Manager (noscript) -->
-		<!-- <noscript
+		<noscript
 			><iframe
 				src="https://www.googletagmanager.com/ns.html?id=GTM-54B349DW"
 				height="0"
 				width="0"
 				style="display: none; visibility: hidden"
 			></iframe
-		></noscript> -->
+		></noscript>
 		<!-- End Google Tag Manager (noscript) -->
 		<noscript>You need to enable JavaScript to run this app.</noscript>
 		<div id="root"></div>
@@ -67,6 +67,7 @@
 
 	<script>
 		AOS.init();
+		console.log('window: ', window);
 		document.addEventListener('DOMContentLoaded', function () {
 			setTimeout(function () {
 				const listATag = document.querySelectorAll('a');
@@ -76,17 +77,11 @@
 						console.log('okkk');
 						var url = link.getAttribute('href');
 						if (url.includes('#contact')) {
-							// dataLayer.push({
-							// 	event: 'link_click_hire_me',
-							// 	event_category: 'link',
-							// 	event_action: 'click',
-							// 	event_label: url,
-							// });
 							gtag('event', 'link_click_hire_me', {
-								link_text: event.target.innerText,
-								link_url: event.target.href,
-								link_id: event.target.id,
-								link_classes: event.target.className,
+								'link_text': event.target.innerText,
+								'link_url': event.target.href,
+								'link_id': event.target.id,
+								'link_classes': event.target.className,
 							});
 						}
 					});
