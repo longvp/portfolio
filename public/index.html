@@ -67,18 +67,23 @@
 
   <script>
     AOS.init();
+
+    function handleEventGtag(event, href, linkMatch) {
+      if (href.includes(linkMatch)) {
+        gtag("event", "link_click_hire_me", {
+          link_text: event.target.innerText,
+          link_url: event.target.href,
+        });
+      }
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
       setTimeout(function () {
         const listATag = document.querySelectorAll("a");
         listATag.forEach(function (link) {
           link.addEventListener("click", function (event) {
-            const url = link.getAttribute("href");
-            if (url.includes("#contact")) {
-              gtag("event", "link_click_hire_me", {
-                'link_text': event.target.innerText,
-                'link_url': event.target.href,
-              });
-            }
+            const href = link.getAttribute("href");
+            handleEventGtag(event, href, "#contact");
           });
         });
       }, 1000);
