@@ -76,11 +76,17 @@
 						console.log('okkk');
 						var url = link.getAttribute('href');
 						if (url.includes('#contact')) {
-							dataLayer.push({
-								event: 'link_click_hire_me',
-								event_category: 'link',
-								event_action: 'click',
-								event_label: url,
+							// dataLayer.push({
+							// 	event: 'link_click_hire_me',
+							// 	event_category: 'link',
+							// 	event_action: 'click',
+							// 	event_label: url,
+							// });
+							gtag('event', 'link_click_hire_me', {
+								link_text: event.target.innerText,
+								link_url: event.target.href,
+								link_id: event.target.id,
+								link_classes: event.target.className,
 							});
 						}
 					});
