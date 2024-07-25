@@ -44,22 +44,6 @@
 			gtag('js', new Date());
 
 			gtag('config', 'G-H2YS5RSYDY');
-
-			document.addEventListener('DOMContentLoaded', function () {
-				document.querySelectorAll('a').forEach(function (link) {
-					link.addEventListener('click', function (event) {
-						var url = link.getAttribute('href');
-						if (url.includes('#contact')) {
-							dataLayer.push({
-								event: 'link_click_hire_me',
-								event_category: 'link',
-								event_action: 'click',
-								event_label: url,
-							});
-						}
-					});
-				});
-			});
 		</script>
 	</head>
 
@@ -76,13 +60,32 @@
 		<!-- End Google Tag Manager (noscript) -->
 		<noscript>You need to enable JavaScript to run this app.</noscript>
 		<div id="root"></div>
-
-		<!-- AOS -->
-		<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
-		<script>
-			AOS.init();
-			console.log('window: ', window);
-		</script>
 	</body>
+
+	<!-- AOS -->
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+	<script>
+		AOS.init();
+		document.addEventListener('DOMContentLoaded', function () {
+			setTimeout(function () {
+				const listATag = document.querySelectorAll('a');
+				console.log('listATag: ', listATag);
+				listATag.forEach(function (link) {
+					link.addEventListener('click', function (event) {
+						console.log('okkk');
+						var url = link.getAttribute('href');
+						if (url.includes('#contact')) {
+							dataLayer.push({
+								event: 'link_click_hire_me',
+								event_category: 'link',
+								event_action: 'click',
+								event_label: url,
+							});
+						}
+					});
+				});
+			}, 1000);
+		});
+	</script>
 </html>
